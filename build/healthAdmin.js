@@ -40,17 +40,37 @@
 /******/ 	return __webpack_require__(0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ 0:
 /***/ function(module, exports, __webpack_require__) {
 
-	/*
-	所有css的文件，使用require引入，再用webpack压缩打包
-	*/
+	__webpack_require__(1);
+	__webpack_require__(10);
+	__webpack_require__(13);
 	 
-	//require('./node_modules/bootstrap/dist/css/bootstrap.css');
-	__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./UI/css/test.css\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	//require('./UI/iconfont/iconfont.css');
+
+/***/ },
+
+/***/ 1:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 10:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
+/***/ },
+
+/***/ 13:
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
-/******/ ]);
+
+/******/ });
