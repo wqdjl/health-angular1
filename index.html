@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html ng-app="healthAdmin">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <link href="node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="UI/css/layout.css" rel="stylesheet" />
+    <link href="UI/iconfont/iconfont.css" rel="stylesheet" />
+
+    <script src="App/lib/jquery.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+    <!--  <script src="build/all_labs-min.js"></script>-->
+
+</head>
+<body>
+
+    <div class="tableDisplay" ng-if="'login'==aside" ui-view>
+
+    </div>
+
+    <div class="wrapper" ng-if="'login'!=aside">
+        <nav class="navbar navbar-inverse navbar-fixed-top" ng-include="'App/layout/header.html'">
+        </nav>
+        <aside ng-include="'App/layout/aside.html'">this is footer</aside>
+        <div id="page-wrapper">
+            <div class="container-fluid" ui-view>
+            </div>
+        </div>
+
+    </div>
+    <!--<script src="build/all_pages.js"></script>-->
+    <!--<script src="build/all_pages-min.js"></script>-->
+
+    <script src="App/app.js"></script>
+    <script src="App/common/healthAdmin.constant.js"></script>
+    <script src="App/common/common.service.js"></script>
+    <script src="App/common/api.provider.js"></script>
+
+    <script src="App/directive/search_date.directive.js"></script>
+    <script src="App/directive/paging.diretive.js"></script>
+
+    <script src="App/login/login.controller.js"></script>
+
+    <script src="App/user/doctor_list.controller.js"></script>
+    <script src="App/user/patient_list.controller.js"></script>
+
+
+    <script src="App/finance/pay.controller.js"></script>
+    <script src="App/finance/pay_list.controller.js"></script>
+    <script src="App/finance/review.controller.js"></script>
+    <script src="App/finance/coindetail_list.controller.js"></script>
+    <script src="App/finance/exchanges_list.controller.js"></script>
+
+    <script src="App/consulting/consulting_list.controller.js"></script>
+    <script src="App/consulting/consulting_detail.controller.js"></script>
+ 
+
+    <script src="App/order/order.controller.js"></script>
+
+</body>
+
+
+</html>

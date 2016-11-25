@@ -1,0 +1,4 @@
+node_modules/
+*.sln
+*.vssscc
+*.publishproj

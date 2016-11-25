@@ -1,0 +1,122 @@
+﻿<div class="popup is-visible">
+    <div class="popup-container">
+        <div class="popup-header">
+            <a href="" class="popup-close" ng-click="closePop()">x</a>
+            <h4 class="modal-title" ng-bind="detail.Doctor.DisplayName"></h4>
+        </div>
+        <div class="popup-body">
+            <div class="chat-cont">
+                <div class="consult-box">
+                    <h3 class="time text-center" ng-bind="detail.CreateTime?getDatetime(detail.CreateTime):''"></h3>
+                    <div class="cb-info">
+                        <h3 ng-if="detail.CType==2">检查项目：<span ng-bind="detail.ConsultingTypeName"></span></h3>
+                        <p>问题：<span ng-bind="detail.ProblemDescription"></span></p>
+                        <div class="cb-lst" ng-if="detail.Attachment&&detail.Attachment.length>0">
+                            <ul>
+                                <li ng-repeat="attach in  detail.Attachment"><a href=""><img ng-src="{{IMSite+attach.Thumbnail}}"></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-box">
+                    <ul>
+                        <li ng-class="{even:replyConsulting.OwnerId==detail.Owner.Id,odd:replyConsulting.OwnerId==detail.Doctor.Id}"
+                            ng-repeat-start="replyConsulting in detail.ReplyConsultings" ng-if="!replyConsulting.FAQ">
+                            <h3 class="time text-center" ng-bind="replyConsulting.CreateTime?getDatetime(replyConsulting.CreateTime):''"></h3>
+                            <a class="user" >
+                                <img ng-src="{{replyConsulting.Creator.DisplayImage?
+                                 (replyConsulting.Creator.DisplayImage.indexOf('http') == 0?
+                                 replyConsulting.Creator.DisplayImage:(IMSite+ (replyConsulting.Creator.PreviewImage||replyConsulting.Creator.DisplayImage))):'/UI/images/ic_noava.png'}}">
+                            </a>
+                            <div class="reply">
+                              
+                                <h3 class="names" ng-bind="replyConsulting.Owner.DisplayName"></h3>
+                                <div class="bubble">
+                                    <span><em></em></span>
+                                    <p ng-if="replyConsulting.Description" ng-bind="replyConsulting.Description"></p>
+                                    <div ng-if="replyConsulting.Attachment&&replyConsulting.Attachment.length>0&&replyConsulting.Attachment[0].AttachmentType==2"
+                                         class="image">
+                                        <img ng-src="{{IMSite+replyConsulting.Attachment[0].Thumbnail}}" class="img-responsive">
+                                    </div>
+                                    <a href="{{IMSite+replyConsulting.Attachment[0].Url}}">
+                                        <div ng-if="replyConsulting.Attachment&&replyConsulting.Attachment.length>0&&replyConsulting.Attachment[0].AttachmentType==1"
+                                             class="spinner animation">
+
+                                            <!--<div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>-->
+
+                                            <p>{{parseJson(replyConsulting.Attachment[0]['Extra'])['length']}}"</p>
+
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li ng-class="{even:replyConsulting.OwnerId==detail.Owner.Id,odd :replyConsulting.OwnerId==detail.Doctor.Id}"
+                            ng-if="replyConsulting.FAQ" ng-repeat-end>
+                            <h3 class="time text-center" ng-bind="replyConsulting.CreateTime?getDatetime(replyConsulting.CreateTime):''"></h3>
+                            <a class="user">
+                                <img ng-src="{{replyConsulting.Creator.DisplayImage?
+                                 (replyConsulting.Creator.DisplayImage.indexOf('http') == 0?
+                                 replyConsulting.Creator.DisplayImage:(IMSite+ (replyConsulting.Creator.PreviewImage||replyConsulting.Creator.DisplayImage))):'/UI/images/ic_noava.png'}}">
+                            </a>
+                            <div class="reply">
+                                <h3 class="names" ng-bind="replyConsulting.Owner.DisplayName"></h3>
+                                <div class="bubble" data-toggle="modal" data-target="#note" ng-click="showFaq(replyConsulting.FAQ)">
+                                    <span><em></em></span>
+                                    <div class="rc-box">
+                                        <h3 ng-bind="replyConsulting.FAQ.Title"></h3>
+                                        <div class="re-cont">
+                                            <img ng-src="/UI/images/ic_FAQ.png">
+                                            <p ng-bind="replyConsulting.FAQ.Content"></p>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="popup-footer">
+            <button type="button" class="btn btn-default" ng-click="closePop()">关闭</button>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="note" tabindex="-1" style="margin-top:119px;" ng-show="faq">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="hideFaq()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" ng-bind="faq.Owner.DisplayName"></h4>
+            </div>
+            <div class="modal-body" style="height:595px;overflow-y:scroll;">
+                <div class="problem">
+                    <ul>
+                        <li>问：</li>
+                        <li><span  ng-bind="faq.Title"></span></li>
+                    </ul>
+                </div>
+                <div class="problem-cont">
+                    <ul>
+                        <li>答：</li>
+                        <li><span ng-bind="faq.Content"></span></li>
+                    </ul>
+                </div>
+                <div class="problem-img">
+                    <ul>
+                        <li ng-repeat="attach in faq.Attachment"><img ng-src="{{IMSite+attach.Url}}"></li>
+
+                    </ul>
+                </div>
+            </div>
+             
+        </div>
+    </div>
+</div>

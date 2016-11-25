@@ -1,0 +1,82 @@
+﻿
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <i class="icon-title iconfont"></i>提现批次
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                财务管理
+            </li>
+            <li class="active">
+                提现批次
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <form class="form-inline">
+            <search-date starttime="filterData.startTime" endtime="filterData.endTime"></search-date>
+            <div class="form-group margin-left-30">
+                <label>状态</label>
+                <select ng-model="filterData.status" class="form-control"
+                        ng-options="key as value for (key ,value) in ExchangePaymentBatchStatus">
+                    <option value="">请选择</option>
+                </select>
+            </div>
+            <button class="btn btn-default" type="button" ng-click="serchPayments()">查询</button>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>批次编号</th>
+                        <th>总金额</th>
+                        <th>总笔数</th>
+                        <th>创建时间</th>
+                        <th>状态</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="payment in payments">
+                        <td ng-bind="payment.Number"></td>
+                        <td ng-bind="payment.Amount"></td>
+                        <td ng-bind="payment.Count"></td>
+                        <td ng-bind="getDatetime(payment.CreateTime)"></td>
+                        <td ng-bind="exchangePaymentBatchStatus[payment.Status]"> </td>
+                        <td>
+                            <button class="btn btn-default" ui-sref="pay({id:payment.Id})">明细</button>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-5">
+                <p>共有{{pageTotal}}页{{count}}条</p>
+            </div>
+            <div class="col-xs-7">
+                <ul class="pagination pull-right">
+                    <li><a href="#" ng-if="1<currentPage" ng-click="serchPayments(currentPage-1)" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                    <li ng-class="{active:showPage==currentPage}" ng-repeat="showPage in showPages" ng-click="serchPayments(showPage)"><a href="#">{{showPage}}</a></li>
+
+                    <li><a href="#" ng-if="pageTotal>currentPage" ng-click="serchPayments(currentPage+1)" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

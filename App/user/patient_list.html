@@ -1,0 +1,61 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <i class="icon-title iconfont"></i>患者信息
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                用户管理
+            </li>
+            <li class="active">
+                患者信息
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <form class="form-inline">
+            <search-date starttime="filterData.startTime" endtime="filterData.endTime"></search-date>
+            <div class="form-group margin-left-30">
+                <label>关键字：</label>
+                <input type="text" class="form-control" id="keywords" ng-model="filterData.keywords" placeholder="输入手机号码、姓名模糊查询" title="输入手机号码、姓名模糊查询" />
+            </div>
+            <button class="btn btn-default" type="button" ng-click="searchPatient()">查询</button>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>手机号码</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>余额（元）</th>
+                        <th>注册时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="patient in patients">
+                        <td ng-bind="patient.DisplayName"></td>
+                        <td ng-bind="patient.PhoneNumber"></td>
+                        <td ng-bind="gender[patient.Gender]"></td>
+                        <td ng-bind='getAge(patient.Birthday)'> </td>
+                        <td ng-bind="patient.Balance.toFixed(2)"></td>
+                        <td ng-bind='getDatetime(patient.RegisterDate)'> </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <page page-size="pageSize" count="count" content="个患者" current-data-count="patients.length" current-page="currentPage" on-page-change="searchPatient(pageIndex)"></page>
+
+</div>
+

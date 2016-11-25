@@ -1,0 +1,45 @@
+﻿
+    <ul class="nav navbar-nav side-nav">
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#demo1"><i class="icon-operate iconfont"></i> 运营管理后台 <b class="caret"></b></a>
+            <ul id="demo1" class="collapse in" aria-expanded="true">
+                <li>
+                    <a href="#" ui-sref="consultings()">咨询管理</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="icon-user iconfont"></i> 用户管理 <b class="caret"></b></a>
+            <ul id="demo2" class="collapse in" aria-expanded="true">
+                <li>
+                    <a href="#"   ui-sref="patient_list()">患者</a>
+                </li>
+                <li>
+                    <a href="#"  ui-sref="doctor_list()">医生</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#demo3"><i class="icon-order iconfont"></i> 订单中心 <b class="caret"></b></a>
+            <ul id="demo3" class="collapse in" aria-expanded="true">
+                <li >
+                    <a href="#" ui-sref="orders()" >订单管理</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;" data-toggle="collapse" data-target="#demo4"><i class="icon-money iconfont"></i> 财务管理 <b class="caret"></b></a>
+            <ul id="demo4" class="collapse in" aria-expanded="true">
+                <li ui-sref="exchanges({action:'review'})">
+                    <a href="#">提现审核</a>
+                </li>
+                <li ui-sref="exchanges({action:'pay'})">
+                    <a href="#">提现付款</a>
+                </li>
+                <li ui-sref="exchanges({action:'all'})">
+                    <a href="#">提现记录</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+ 

@@ -1,0 +1,186 @@
+﻿<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>弹出层-聊天记录</title>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+</head>
+
+<body>
+    <object width="200" height="40" classid="clsid:02BF25D5-8C17-4B23-BC80-D3488ABDDC6B" codebase="http://www.apple.com/qtactivex/qtplugin.cab">
+        <param name="src" value="">
+        <param name="controller" value="true">
+        <param name="type" value="video/quicktime">
+        <param name="autoplay" value="true">
+        <param name="target" value="myself">
+        <param name="bgcolor" value="black">
+        <param name="pluginspage" value="http://www.apple.com/quicktime/download/index.html">
+        <embed src="" autostart="true" width="200" height="40" controller="true" align="middle" bgcolor="black" target="myself" type="video/quicktime" pluginspage="http://www.apple.com/quicktime/download/index.html"></embed>
+    </object>
+    <a href="" class="btn btn-default popup-trigger">点我</a>
+    <div class="popup">
+        <div class="popup-container">
+            <div class="popup-header">
+                <a href="" class="popup-close">x</a>
+                <h4 class="modal-title">吴妍珠医生</h4>
+            </div>
+            <div class="popup-body">
+                <div class="chat-cont">
+                    <div class="consult-box">
+                        <h3 class="time text-center">2015-07-13 15:10</h3>
+                        <div class="cb-info">
+                            <h3>检查项目：<span>W-两个世界</span></h3>
+                            <p>问题：<span>该剧讲述了现实世界中的女医生吴妍珠偶然地进入了人气漫画《W》的世界，与漫画男主人公姜哲相遇后发生的悬疑浪漫爱情故事</span></p>
+                            <div class="cb-lst">
+                                <ul>
+                                    <li><a href=""><img src="images/img1.jpg"></a></li>
+                                    <li><a href=""><img src="images/img2.jpg"></a></li>
+                                    <li><a href=""><img src="images/img1.jpg"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chat-box">
+                        <ul>
+                            <li class="odd">
+                                <h3 class="time text-center">2015-07-13 15:10</h3>
+                                <a class="user" href="#"><img src="images/img1.jpg"></a>
+                                <div class="reply">
+                                    <h3 class="names">姜哲</h3>
+                                    <div class="bubble">
+                                        <span><em></em></span>
+                                        <p>我为什么会在这里</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="even">
+                                <h3 class="time text-center">2015-07-13 15:10</h3>
+                                <a class="user" href="#"><img src="images/img2.jpg"></a>
+                                <div class="reply">
+                                    <h3 class="names">吴妍珠</h3>
+                                    <div class="bubble">
+                                        <span><em></em></span>
+                                        <p>因为你找到了我人生的钥匙呀</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="odd">
+                                <h3 class="time text-center">2015-07-13 15:10</h3>
+                                <a class="user" href="#"><img src="http://www.wx.ideafirst.com.cn:8881/Public/e4/e4794305ba65448ea0b124919fc0ad03.jpg"></a>
+                                <div class="reply">
+                                    <h3 class="names">姜哲</h3>
+                                    <div class="bubble" data-toggle="modal" data-target="#note">
+                                        <span><em></em></span>
+                                        <div class="rc-box">
+                                            <h3>妇产手术后常见问答</h3>
+                                            <div class="re-cont">
+                                                <img src="images/ic_FAQ.png">
+                                                <p>手术后短期内是一个比较难受的阶段，手术后的创伤会造成伤口及盆腔内的疼痛，疼痛程度因人而异，性质也因手术...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="even">
+                                <h3 class="time text-center">2015-07-13 15:10</h3>
+                                <a class="user" href="#"><img src="images/img2.jpg"></a>
+                                <div class="reply">
+                                    <h3 class="names">吴妍珠</h3>
+                                    <div class="bubble">
+                                        <span><em></em></span>
+                                        <div class="image">
+                                            <img src="images/img1.jpg" class="img-responsive">
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="odd">
+                                <h3 class="time text-center">2015-07-13 15:10</h3>
+                                <a class="user" href="#"><img src="images/img1.jpg"></a>
+                                <div class="reply">
+                                    <h3 class="names">姜哲</h3>
+                                    <div class="bubble">
+                                        <span><em></em></span>
+                                        <div class="spinner animation">
+                                            <div class="rect1"></div>
+                                            <div class="rect2"></div>
+                                            <div class="rect3"></div>
+                                            <p>17"</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-footer">
+                <button type="button" class="btn btn-default">关闭</button>
+            </div>
+        </div>
+    </div>  
+    
+    <div class="modal fade" id="note" tabindex="-1"  style="margin-top:119px;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">吴妍珠医生</h4>
+                </div>
+                <div class="modal-body" style="height:595px;overflow-y:scroll;">
+                    <div class="problem">
+                        <ul>
+                            <li>问：</li>
+                            <li><span>妇产手术后常见问题</span></li>
+                        </ul>
+                    </div>
+                    <div class="problem-cont">
+                        <ul>
+                            <li>答：</li>
+                            <li><span>手术以后。短期内是一个比较难受的阶段，手术的创伤会导致伤口以及盆腔内的疼痛，疼痛的程度因人而异，性质也是因手术的方式不同而有所不同。腹腔镜手术一般伤口不大，我们也通常在伤口部位加了局部麻醉。手术以后。短期内是一个比较难受的阶段，手术的创伤会导致伤口以及盆腔内的疼痛，疼痛的程度因人而异，性质也是因手术的方式不同而有所不同。腹腔镜手术一般伤口不大，我们也通常在伤口部位加了局部麻醉。</span></li>
+                        </ul>
+                    </div>
+                    <div class="problem-img">
+                        <ul>
+                            <li><img src="images/img1.jpg"></li>
+                            <li><img src="images/img2.jpg"></li>
+                            <li><img src="images/img1.jpg"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+<script src="js/jquery.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function ($) {
+            //打开窗口
+            $(".popup-trigger").on("click", function (event) {
+                event.preventDefault();
+                $(".popup").addClass("is-visible");
+            })
+            //关闭窗口
+            $(".popup").on("click", function (event) {
+                if ($(event.target).is(".popup-close") || $(event.target).is(".popup")) {
+                    event.preventDefault();
+                    $(this).removeClass("is-visible");
+                }
+            });
+            //ESC关闭
+            $(document).keyup(function (event) {
+                if (event.which == '27') {
+                    $(".popup").removeClass("is-visible");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

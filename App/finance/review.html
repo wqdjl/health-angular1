@@ -1,0 +1,46 @@
+﻿<!--
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+
+            <h4 class="modal-title" id="myModalLabel">审核原因</h4>
+        </div>
+        <div class="modal-body">
+            <textarea class="form-control" rows="5" ng-model="reason"></textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="refuse()">拒绝</button>
+
+             <button type="button" class="btn btn-success btn-loading" data-dismiss="modal" ng-click="allow()">通过</button>
+            <button type="submit" class="btn btn-success btn-loading" ng-click="allow()">通过</button>
+        </div>
+    </div>-->
+<div class="popup  {{isShowPop?'is-visible':''}}">
+    <div class="popup-container">
+        <div class="popup-header">
+            <a href="" class="popup-close" ng-click="close()">x</a>
+            <h4 class="modal-title">审核原因</h4>
+        </div>
+        <div class="popup-body">
+            <div class="row">
+                <div class="col-xs-2" style="margin-top:6px;">拒绝原因：</div>
+                <div class="col-xs-10">
+                    <select class="form-control" ng-change="selectedReasonChange()" ng-model="selectedReason">
+                        <option></option>
+                        <option>系统检测到你存在刷单行为，请尊守平台规则，如再次发现将永久封号处理。</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <textarea class="form-control ng-pristine ng-untouched ng-valid ng-empty" rows="5" ng-model="reason"></textarea>
+                    <!--<small class="textError {{}}">请输入拒绝理由</small>-->
+                </div>
+            </div>
+        </div>
+        <div class="popup-footer">
+            <button type="button" class="btn btn-default" ng-click="refuse()">拒绝</button>
+            <button type="button" class="btn btn-success" ng-click="allow()">通过</button>
+        </div>
+    </div>
+</div>

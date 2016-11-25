@@ -1,0 +1,66 @@
+﻿
+<div class="popup  {{isShowPop?'is-visible':''}}">
+    <div class="popup-container">
+        <div class="popup-header">
+            <a href="" class="popup-close" ng-click="close()">x</a>
+
+            <h4 class="modal-title">医生收益明细</h4>
+
+        </div>
+        <div class="popup-body">
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="{{tab==1?'active':''}}" ng-click="changeTab(1)">
+                    <a>签到</a>
+                </li>
+                <li class="{{tab==2?'active':''}}" ng-click="changeTab(2)">
+                    <a>咨询收入</a>
+                </li>
+                <li class="{{tab==3?'active':''}}" ng-click="changeTab(3)">
+                    <a>广告</a>
+                </li>
+                <li class="{{tab==4?'active':''}}" ng-click="changeTab(4)">
+                    <a>提成</a>
+                </li>
+            </ul>
+            
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>日期</th>
+                                    <th ng-if="tab==2">服务类型</th>
+                                    <th>收益（元）</th>
+                                    <th ng-if="tab==2">结算状态</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="coinDetail in coinDetails">
+                                    <td>
+                                        {{getDatetime(coinDetail.CreateTime)}}
+                                    </td>
+                                    <td ng-if="tab==2">{{coinDetailType[coinDetail.CoinDetailType]}}</td>
+
+                                    <td ng-bind="coinDetail.ChangeCoins.toFixed(2)"> </td>
+
+                                    <td ng-if="tab==2">
+                                        {{settlementStatus[coinDetail.SettlementStatus]}}
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+           
+             <div class="row">
+                 <page page-size="pageSize" count="count" content="条" current-data-count="coinDetails.length" current-page="currentPage" on-page-change="serchCoinDetails(pageIndex)"></page>
+
+            </div>
+        </div>
+
+    </div>
+</div>

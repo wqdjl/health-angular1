@@ -1,0 +1,32 @@
+﻿<form name="loginForm">
+    <div class="loginCon">
+        <div class="loginBox">
+            <div class="email error">
+                <input required class="input-box" type="text" name="username" ng-model="loginData.userName" placeholder="输入用户名或者手机号码">
+                <i class="icon-email iconfont"></i>
+                <small class="textError" ng-show="loginForm.username.$dirty&&!loginForm.username.$valid">请填写用户名</small>
+            </div>
+            <div class="password error">
+                <input required class="input-box" type="password" name="password" ng-model="loginData.password" placeholder="密码">
+                <i class="icon-pwd iconfont"></i>
+                <small class="textError" ng-show="loginForm.username.$dirty&&!loginForm.username.$valid">请填写密码</small>
+            </div>
+            <!--<div class="accountType">
+                <select class="input-box">
+                    <option>Unknown</option>
+                    <option>System</option>
+                    <option>Doctor</option>
+                    <option>Patient</option>
+                </select>
+            </div>-->
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" ng-model="loginData.remember"> 记住密码
+                </label>
+            </div>
+            <div class="btnSec">
+                <button class="btn" type="submit" ng-click="login()">Login In</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,95 @@
+﻿<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            <i class="icon-title iconfont"></i>订单管理
+        </h1>
+        <ol class="breadcrumb">
+            <li>
+                订单中心
+            </li>
+            <li class="active">
+                订单管理
+            </li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <form class="form-inline">
+            <search-date title="订单日期" starttime="filterData.startTime" endtime="filterData.endTime"></search-date>
+            <div class="form-group margin-left-30">
+                <label>关键字：</label>
+                <input type="text" class="form-control" id="keywords" ng-model="filterData.keywords" placeholder="输入手机号码、姓名模糊查询" title="输入手机号码、姓名模糊查询"/>
+            </div>
+            <button class="btn btn-default" type="button" ng-click="serchOrders()">查询</button>
+        </form>
+    </div>
+</div>
+<ul id="myTab" class="nav nav-tabs">
+    <li ng-class="{active:filterData.status==0}" ng-click="searchStatus(0)">
+        <a>全部</a>
+    </li>
+    <li ng-class="{active:filterData.status==1}" ng-click="searchStatus(1)">
+        <a>未付款</a>
+    </li>
+    <li ng-class="{active:filterData.status==2}"  ng-click="searchStatus(2)">
+        <a>已付款</a>
+    </li>
+    <li ng-class="{active:filterData.status==4}" ng-click="searchStatus(4)">
+        <a>已退款</a>
+    </li>
+</ul>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                <tr>
+                    <th>订单日期</th>
+                    <th>患者</th>
+                    <th>手机号码</th>
+                    <th>服务类型</th>
+                    <th>价格（元）</th>
+                    <th>余额支付</th>
+                    <th>支付宝支付</th>
+                    <th>微信支付</th>
+                    <th>支付状态</th>
+                    <th>医生</th>
+                    <th>医院名称</th>
+                    <th>科室</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="order in orders">
+                    <td ng-bind="getDatetime(order.OrderDate)"></td>
+                    <td ng-bind="order.PatientName"></td>
+                    <td ng-bind="order.PhoneNumber"></td>
+                    <td ng-bind="orderServiceType[order.ServiceType]"></td>
+                    <td ng-bind="order.Price.toFixed(2)"></td>
+                    <td ng-bind="order.Balance.toFixed(2)"></td>
+                    <td>
+                        <p ng-if="(order.PaymentMethod==0||order.PaymentMethod==1||order.PaymentMethod==2||order.PaymentMethod==4)&&order.PaymentStatus==2" ng-bind="(order.Price-order.Balance).toFixed(2)"></p>
+                        <p ng-if="(order.PaymentMethod!==0&&order.PaymentMethod!==1&&order.PaymentMethod!==2&&order.PaymentMethod!==4)||
+                               ((order.PaymentMethod==0||order.PaymentMethod==1||order.PaymentMethod==2||order.PaymentMethod==4)&&order.PaymentStatus==1)">0.00</p>
+                    </td>
+
+                    <td>
+                        <p ng-if="(order.PaymentMethod==5||order.PaymentMethod==6)&&order.PaymentStatus==2" ng-bind="(order.Price-order.Balance).toFixed(2)"></p>
+                        <p ng-if="order.PaymentMethod!==5&&order.PaymentMethod!==6||((order.PaymentMethod==5||order.PaymentMethod==6)&&order.PaymentStatus==1)">0.00</p>
+                    </td>
+                    <td ng-bind="paymentStatus[order.PaymentStatus]"></td>
+                    <td ng-bind="order.DoctorName"></td>
+                    <td ng-bind="order.HospitalName"></td>
+                    <td ng-bind="order.DepartmentName"> </td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <page page-size="pageSize" count="count" content="条订单" current-data-count="orders.length" current-page="currentPage" on-page-change="serchOrders(pageIndex)"></page>
+ 
+</div>
+<div ui-view></div>

@@ -1,0 +1,51 @@
+﻿<form  action="{{action}}" class="form-horizontal" id="form" method="post" role="form">
+    <input  type="text" name="id" class="hide" ng-model="batch.Id"/>
+    <div class="form-group form-group-sm">
+        <label class="col-xs-2 control-label" for="Number">批次编号</label>
+        <div class="col-xs-3" ng-bind="batch.Number">
+
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <label class="col-xs-2 control-label" for="Amount">状态</label>
+        <div class="col-xs-3" ng-bind="exchangePaymentBatchStatus[batch.Status]">
+
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <label class="col-xs-2 control-label" for="Amount">总金额</label>
+        <div class="col-xs-3" ng-bind="batch.Amount">
+
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <label class="col-xs-2 control-label" for="Count">笔数</label>
+        <div class="col-xs-3" ng-bind="batch.Count">
+
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <label class="col-xs-2 control-label" for="CreateTime">创建时间</label>
+        <div class="col-xs-3" ng-bind="getDatetime(batch.CreateTime)">
+
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <label class="col-xs-2 control-label" for="ProcessingTime">处理时间</label>
+        <div class="col-xs-3" ng-bind="batch.ProcessingTime?getDatetime(batch.ProcessingTime):''">
+
+        </div>
+    </div>
+    <div class="form-group form-group-sm">
+        <label class="col-xs-2 control-label" for="CompleteTime">完成时间</label>
+        <div class="col-xs-3" ng-bind="batch.CompleteTime?getDatetime(batch.CompleteTime):''">
+
+        </div>
+    </div>
+    <div class="form-group form-group-sm" ng-if="batch.Status==10">
+        <div class="col-xs-offset-2 col-xs-3">
+            <button class="btn btn-primary btn-sm" type="submit" id="submit">提交付款</button>
+           <!-- <button class="btn btn-primary btn-sm" type="submit" id="submit">取消批次</button>-->
+        </div>
+    </div>
+</form>

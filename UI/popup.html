@@ -1,0 +1,60 @@
+﻿<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>弹出层-Demo</title>
+    <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    <link rel="stylesheet" href="iconfont/iconfont.css">
+</head>
+
+<body>
+    <a href="" class="btn btn-default popup-trigger">点我</a>
+    <div>
+        <div class="popup">
+            <div class="popup-container">
+                <div class="popup-header">
+                    <a href="" class="popup-close">x</a>
+                    <h4 class="modal-title">审核原因</h4>
+                </div>
+                <div class="popup-body">
+                    <textarea class="form-control ng-pristine ng-untouched ng-valid ng-empty" rows="5" ng-model="reason"></textarea>
+                    <span class="red">ereere</span>
+                </div>
+                <div class="popup-footer">
+                    <button type="button" class="btn btn-default">拒绝</button>
+                    <button type="button" class="btn btn-success">通过</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function ($) {
+            //打开窗口
+            $(".popup-trigger").on("click", function (event) {
+                event.preventDefault();
+                $(".popup").addClass("is-visible");
+            })
+            //关闭窗口
+            $(".popup").on("click", function (event) {
+                if ($(event.target).is(".popup-close") || $(event.target).is(".popup")) {
+                    event.preventDefault();
+                    $(this).removeClass("is-visible");
+                }
+            });
+            //ESC关闭
+            $(document).keyup(function (event) {
+                if (event.which == '27') {
+                    $(".popup").removeClass("is-visible");
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
